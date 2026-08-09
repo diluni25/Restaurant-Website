@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savoré - Fine Dining</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Savoré</div>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">HOME</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="login.html" class="btn-primary">SIGN IN</a>
+            <!-- Cart Button goes to cart.html -->
+            <a href="cart.html" class="cart-btn">CART <span id="cart-count">0</span></a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/home-bg.jpg') no-repeat center center/cover;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="subtitle">Fine Dining - Est. 2009</p>
+            <h1>Food crafted<br><span class="highlight">with love</span></h1>
+            <p class="description">Seasonal ingredients, classical technique, and a passion for perfection — served in an atmosphere designed to linger.</p>
+            <div class="hero-buttons">
+                <!-- ORDER NOW goes to menu.html -->
+                <a href="menu.html" class="btn-primary">ORDER NOW</a>
+                <!-- Our Story goes to about.html -->
+                <a href="about.html" class="btn-secondary">Our Story</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Dishes Section -->
+    <section class="featured-section">
+        <h2>Featured <span>Dishes</span></h2>
+        <!-- Featured Dishes Grid -->
+<div class="dishes-grid">
+    <div class="dish-card" onclick="location.href='product.html?name=Margherita%20Pizza&price=2000&img=images/pizza.jpg&desc=Freshly baked pizza loaded with rich cheese and tomato base.'" style="cursor: pointer;">
+        <img src="images/pizza.jpg" alt="Margherita Pizza">
+        <h3>Margherita Pizza</h3>
+        <p class="price">Rs. 2000</p>
+    </div>
+
+    <div class="dish-card" onclick="location.href='product.html?name=Double%20Cheese%20Burger&price=2400&img=images/burger.jpg&desc=Juicy double beef patties with melted cheese and french fries.'" style="cursor: pointer;">
+        <img src="images/burger.jpg" alt="Double Cheese Burger">
+        <h3>Double Cheese Burger</h3>
+        <p class="price">Rs. 2400</p>
+    </div>
+
+    <div class="dish-card" onclick="location.href='product.html?name=Raspberry%20Cake&price=1750&img=images/cake.jpg&desc=Fresh raspberries, vanilla cream, and soft sponge cake.'" style="cursor: pointer;">
+        <img src="images/cake.jpg" alt="Raspberry Cake">
+        <h3>Raspberry Cake</h3>
+        <p class="price">Rs. 1750</p>
+    </div>
+
+    <div class="dish-card" onclick="location.href='product.html?name=Sunset%20Cocktail&price=1400&img=images/drinks_2.jpg&desc=Fresh citrus notes infused with aromatic spices over crystal ice.'" style="cursor: pointer;">
+        <img src="images/drinks.jpg" alt="Sunset Cocktail">
+        <h3>Sunset Cocktail</h3>
+        <p class="price">Rs. 1400</p>
+    </div>
+</div>
+    </section>
+
+    <!-- More Than a Meal Section -->
+    <section class="memory-section">
+        <div class="memory-container">
+            <div class="memory-image">
+                <img src="images/chef.jpg" alt="Chef Cooking">
+            </div>
+            <div class="memory-content">
+                <h3>More Than a Meal — <br><span>A Memory</span></h3>
+                <p>From the first bite to the last sip, dining at Savoré is a journey through carefully sourced ingredients, time-honoured techniques, and a space designed for conversation and celebration.</p>
+                <div class="service-tags">
+                    <span class="tag">🥂 Private Dining</span>
+                    <span class="tag">🎉 Event Catering</span>
+                    <span class="tag">🚴 Express Delivery</span>
+                    <span class="tag">🍽️ Table Reservation</span>
+                </div>
+                <div class="memory-button">
+                    <a href="services.html" class="btn-secondary">OUR SERVICES →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">Savoré</div>
+            <p>© 2026 Savoré Restaurant. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

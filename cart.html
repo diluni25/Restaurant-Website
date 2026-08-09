@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savoré - Your Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cart-section {
+            padding: 50px 5%;
+            min-height: 60vh;
+        }
+        .cart-header {
+            margin-bottom: 30px;
+        }
+        .cart-header h1 {
+            font-size: 2.5rem;
+        }
+        .cart-header h1 span {
+            color: var(--gold-accent);
+            font-style: italic;
+        }
+        .cart-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        .cart-items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .cart-item-card {
+            background-color: var(--card-bg);
+            border: 1px solid #2A1A14;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .cart-item-img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .cart-item-details {
+            flex: 1;
+        }
+        .cart-item-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .cart-item-price {
+            color: var(--gold-accent);
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+        .cart-item-qty {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cart-qty-btn {
+            background-color: #2A1A14;
+            color: var(--text-light);
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #ff5c5c;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .cart-summary {
+            background-color: var(--card-bg);
+            border: 1px solid #2A1A14;
+            padding: 30px;
+            border-radius: 12px;
+            height: fit-content;
+        }
+        .cart-summary h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #2A1A14;
+            padding-bottom: 10px;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .summary-row.total {
+            color: var(--text-light);
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-top: 1px solid #2A1A14;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        .summary-row.total span:last-child {
+            color: var(--gold-accent);
+        }
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .empty-cart {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            padding: 40px;
+        }
+        @media screen and (max-width: 900px) {
+            .cart-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Savoré</div>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="login.html" class="btn-primary">SIGN IN</a>
+            <a href="cart.html" class="cart-btn active">CART <span id="cart-count">0</span></a>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="cart-header">
+            <h1>Your <span>Cart</span></h1>
+        </div>
+
+        <div class="cart-container">
+            <!-- Cart Items List -->
+            <div class="cart-items-list" id="cart-items-container">
+                <!-- JavaScript will load cart items here dynamically -->
+            </div>
+
+            <!-- Cart Summary Box -->
+            <div class="cart-summary">
+                <h3>Order Summary</h3>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="summary-subtotal">Rs. 0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery Fee</span>
+                    <span id="summary-delivery">Rs. 350</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="summary-total">Rs. 350</span>
+                </div>
+                <button class="btn-primary checkout-btn" onclick="proceedCheckout()">PROCEED TO CHECKOUT</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">Savoré</div>
+            <p>© 2026 Savoré Restaurant. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Script -->
+    <script src="script.js"></script>
+    <script>
+        function renderCart() {
+            let cart = JSON.parse(localStorage.getItem('savore_cart')) || [];
+            let container = document.getElementById('cart-items-container');
+            let cartCount = document.getElementById('cart-count');
+            
+            let totalItemsCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            if (cartCount) cartCount.innerText = totalItemsCount;
+
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="empty-cart">Your cart is currently empty. <br><a href="menu.html" class="btn-primary" style="display:inline-block; margin-top:15px;">Explore Menu</a></div>`;
+                document.getElementById('summary-subtotal').innerText = 'Rs. 0';
+                document.getElementById('summary-delivery').innerText = 'Rs. 0';
+                document.getElementById('summary-total').innerText = 'Rs. 0';
+                return;
+            }
+
+            let html = '';
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                subtotal += item.price * item.quantity;
+                html += `
+                    <div class="cart-item-card">
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                        <div class="cart-item-details">
+                            <h3>${item.name}</h3>
+                            <div class="cart-item-price">Rs. ${item.price}</div>
+                            <div class="cart-item-qty">
+                                <button class="cart-qty-btn" onclick="updateItemQty(${index}, -1)">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="cart-qty-btn" onclick="updateItemQty(${index}, 1)">+</button>
+                            </div>
+                        </div>
+                        <button class="remove-btn" onclick="removeCartItem(${index})">Remove</button>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            let delivery = 350;
+            document.getElementById('summary-subtotal').innerText = 'Rs. ' + subtotal;
+            document.getElementById('summary-delivery').innerText = 'Rs. ' + delivery;
+            document.getElementById('summary-total').innerText = 'Rs. ' + (subtotal + delivery);
+        }
+
+        function updateItemQty(index, change) {
+            let cart = JSON.parse(localStorage.getItem('savore_cart')) || [];
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            localStorage.setItem('savore_cart', JSON.stringify(cart));
+            renderCart();
+            updateCartCount();
+        }
+
+        function removeCartItem(index) {
+            let cart = JSON.parse(localStorage.getItem('savore_cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('savore_cart', JSON.stringify(cart));
+            renderCart();
+            updateCartCount();
+        }
+
+        function proceedCheckout() {
+            let cart = JSON.parse(localStorage.getItem('savore_cart')) || [];
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            alert('Order placed successfully! Thank you for choosing Savoré.');
+            localStorage.removeItem('savore_cart');
+            renderCart();
+            updateCartCount();
+        }
+
+        // Initial render on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+        });
+    </script>
+</body>
+</html>

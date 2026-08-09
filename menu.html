@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savoré - Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Savoré</div>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="menu.html" class="active">MENU</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="login.html" class="btn-primary">SIGN IN</a>
+            <a href="cart.html" class="cart-btn">CART <span id="cart-count">0</span></a>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- Menu Header -->
+    <header class="menu-header">
+        <h1>Our <span>Menu</span></h1>
+    </header>
+
+    <!-- Menu Section -->
+    <section class="menu-section">
+        <!-- Category Buttons -->
+        <div class="category-buttons">
+            <button class="cat-btn" data-category="starters">Starters</button>
+            <button class="cat-btn active" data-category="mains">Mains</button>
+            <button class="cat-btn" data-category="desserts">Desserts</button>
+            <button class="cat-btn" data-category="drinks">Drinks</button>
+        </div>
+
+        <!-- Food Grid -->
+        <div class="menu-grid">
+            <!-- Mains Items -->
+            <div class="menu-card" data-category="mains" onclick="goToProduct('Mixed Grill Platter', 3400, 'images/main1.jpg', 'Char-grilled beef and chicken skewers, perfectly cooked and served alongside roasted potatoes and a rich, creamy garlic dip.')">
+                <img src="images/main1.jpg" alt="Mixed Grill Platter">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Mixed Grill Platter</h3>
+                        <span class="price">Rs. 3400</span>
+                    </div>
+                    <p>Char-grilled beef and chicken skewers, perfectly cooked and served alongside roasted potatoes and a rich, creamy garlic dip.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Mixed Grill Platter', 3400, 'images/main1.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="mains" onclick="goToProduct('Double Cheeseburger & Fries', 2400, 'images/burger.jpg', 'Juicy double beef patties with melted cheese, fresh lettuce, red onions, and golden crispy french fries.')">
+                <img src="images/burger.jpg" alt="Double Cheeseburger & Fries">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Double Cheeseburger & Fries</h3>
+                        <span class="price">Rs. 2400</span>
+                    </div>
+                    <p>Juicy double beef patties with melted cheese, fresh lettuce, red onions, and golden crispy french fries.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Double Cheeseburger & Fries', 2400, 'images/burger.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="mains" onclick="goToProduct('Chicken Fajita Wraps', 2800, 'images/main3.jpg', 'Spiced grilled chicken, bell peppers, onions, soft tortillas.')">
+                <img src="images/main3.jpg" alt="Chicken Fajita Wraps">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Chicken Fajita Wraps</h3>
+                        <span class="price">Rs. 2800</span>
+                    </div>
+                    <p>Spiced grilled chicken, bell peppers, onions, soft tortillas.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Chicken Fajita Wraps', 2800, 'images/main3.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="mains" onclick="goToProduct('Margherita Pizza', 2000, 'images/pizza.jpg', 'Freshly baked pizza slices loaded with rich cheese, herbs, and signature tomato base.')">
+                <img src="images/pizza.jpg" alt="Margherita Pizza">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Margherita Pizza</h3>
+                        <span class="price">Rs. 2000</span>
+                    </div>
+                    <p>Freshly baked pizza slices loaded with rich cheese, herbs, and signature tomato base.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Margherita Pizza', 2000, 'images/pizza.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="mains" onclick="goToProduct('Pappardelle Bolognese', 2400, 'images/main2.jpg', 'Fresh pappardelle pasta, rich slow-cooked beef ragu, parsley.')">
+                <img src="images/main2.jpg" alt="Pappardelle Bolognese">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Pappardelle Bolognese</h3>
+                        <span class="price">Rs. 2400</span>
+                    </div>
+                    <p>Fresh pappardelle pasta, rich slow-cooked beef ragu, parsley.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Pappardelle Bolognese', 2400, 'images/main2.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="mains" onclick="goToProduct('BBQ Chicken & Pineapple Pizza', 2300, 'images/mains4.jpg', 'Grilled chicken, fresh pineapple, red onions, mozzarella, BBQ sauce.')">
+                <img src="images/mains4.jpg" alt="BBQ Chicken & Pineapple Pizza">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>BBQ Chicken & Pineapple Pizza</h3>
+                        <span class="price">Rs. 2300</span>
+                    </div>
+                    <p>Grilled chicken, fresh pineapple, red onions, mozzarella, BBQ sauce.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('BBQ Chicken & Pineapple Pizza', 2300, 'images/mains4.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <!-- Starters Items -->
+            <div class="menu-card" data-category="starters" style="display: none;" onclick="goToProduct('Sesame Glazed Chicken Wings', 1450, 'images/starters1.jpg', 'Crispy fried chicken wings tossed in a sweet and savory sesame glaze, garnished with fresh herbs.')">
+                <img src="images/starters1.jpg" alt="Sesame Glazed Chicken Wings">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Sesame Glazed Chicken Wings</h3>
+                        <span class="price">Rs. 1450</span>
+                    </div>
+                    <p>Crispy fried chicken wings tossed in a sweet and savory sesame glaze, garnished with fresh herbs.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Sesame Glazed Chicken Wings', 1450, 'images/starters1.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="starters" style="display: none;" onclick="goToProduct('Caramelized Onion Bruschetta', 1200, 'images/starters2.jpg', 'Toasted artisanal bread topped with rich caramelized onions, melted cheese, and fresh arugula.')">
+                <img src="images/starters2.jpg" alt="Caramelized Onion Bruschetta">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Caramelized Onion Bruschetta</h3>
+                        <span class="price">Rs. 1200</span>
+                    </div>
+                    <p>Toasted artisanal bread topped with rich caramelized onions, melted cheese, and fresh arugula.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Caramelized Onion Bruschetta', 1200, 'images/starters2.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="starters" style="display: none;" onclick="goToProduct('Loaded Mushroom Fries', 1350, 'images/starters3.jpg', 'Golden French fries smothered in a creamy mushroom sauce, crispy bacon bits, and herbs.')">
+                <img src="images/starters3.jpg" alt="Loaded Mushroom Fries">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Loaded Mushroom Fries</h3>
+                        <span class="price">Rs. 1350</span>
+                    </div>
+                    <p>Golden French fries smothered in a creamy mushroom sauce, crispy bacon bits, and herbs.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Loaded Mushroom Fries', 1350, 'images/starters3.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="starters" style="display: none;" onclick="goToProduct('Golden Pumpkin Velouté', 1100, 'images/starters4.jpg', 'Smooth and creamy golden pumpkin soup topped with noodles, raisins, and fresh parsley.')">
+                <img src="images/starters4.jpg" alt="Golden Pumpkin Velouté">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Golden Pumpkin Velouté</h3>
+                        <span class="price">Rs. 1100</span>
+                    </div>
+                    <p>Smooth and creamy golden pumpkin soup topped with noodles, raisins, and fresh parsley.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Golden Pumpkin Velouté', 1100, 'images/starters4.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <!-- Desserts Items -->
+            <div class="menu-card" data-category="desserts" style="display: none;" onclick="goToProduct('Raspberry Cake', 1750, 'images/cake.jpg', 'Fresh raspberries, vanilla cream, sponge cake.')">
+                <img src="images/cake.jpg" alt="Raspberry Cake">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Raspberry Cake</h3>
+                        <span class="price">Rs. 1750</span>
+                    </div>
+                    <p>Fresh raspberries, vanilla cream, sponge cake.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Raspberry Cake', 1750, 'images/cake.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="desserts" style="display: none;" onclick="goToProduct('Chocolate Oreo Sundae', 1450, 'images/dessert1.jpg', 'Layers of rich chocolate mousse, crushed Oreo cookies, whipped cream, and hot chocolate fudge.')">
+                <img src="images/dessert1.jpg" alt="Chocolate Oreo Sundae">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Chocolate Oreo Sundae</h3>
+                        <span class="price">Rs. 1450</span>
+                    </div>
+                    <p>Layers of rich chocolate mousse, crushed Oreo cookies, whipped cream, and hot chocolate fudge.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Chocolate Oreo Sundae', 1450, 'images/dessert1.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="desserts" style="display: none;" onclick="goToProduct('Sizzling Brownie with Ice Cream', 1600, 'images/dessert2.jpg', 'Warm, fudgy chocolate brownie topped with two scoops of vanilla ice cream and chocolate drizzle.')">
+                <img src="images/dessert2.jpg" alt="Sizzling Brownie with Ice Cream">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Sizzling Brownie with Ice Cream</h3>
+                        <span class="price">Rs. 1600</span>
+                    </div>
+                    <p>Warm, fudgy chocolate brownie topped with two scoops of vanilla ice cream and chocolate drizzle.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Sizzling Brownie with Ice Cream', 1600, 'images/dessert2.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="desserts" style="display: none;" onclick="goToProduct('Blueberry Glazed Cake', 1350, 'images/dessert3.jpg', 'Fresh blueberry infused sponge cake drizzled with sweet vanilla glaze and fresh berries.')">
+                <img src="images/dessert3.jpg" alt="Blueberry Glazed Cake">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Blueberry Glazed Cake</h3>
+                        <span class="price">Rs. 1350</span>
+                    </div>
+                    <p>Fresh blueberry infused sponge cake drizzled with sweet vanilla glaze and fresh berries.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Blueberry Glazed Cake', 1350, 'images/dessert3.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <!-- Drinks Items -->
+            <div class="menu-card" data-category="drinks" style="display: none;" onclick="goToProduct('Sunset Punch Cocktail', 1400, 'images/drinks.jpg', 'Fresh citrus notes infused with aromatic spices and premium blend over ice.')">
+                <img src="images/drinks.jpg" alt="Sunset Punch Cocktail">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Sunset Punch Cocktail</h3>
+                        <span class="price">Rs. 1400</span>
+                    </div>
+                    <p>Fresh citrus notes infused with aromatic spices and premium blend over ice.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Sunset Punch Cocktail', 1400, 'images/drinks.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="drinks" style="display: none;" onclick="goToProduct('Classic Ice Tea', 950, 'images/drinks1.jpg', 'Refreshing brewed black tea infused with fresh lime and mint leaves over crystal ice.')">
+                <img src="images/drinks1.jpg" alt="Classic Ice Tea">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Classic Ice Tea</h3>
+                        <span class="price">Rs. 950</span>
+                    </div>
+                    <p>Refreshing brewed black tea infused with fresh lime and mint leaves over crystal ice.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Classic Ice Tea', 950, 'images/drinks1.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="drinks" style="display: none;" onclick="goToProduct('Blue Lagoon Mocktail', 1100, 'images/drinks2.jpg', 'Vibrant blue citrus syrup, sparkling soda, fresh lemon slices, and crushed ice.')">
+                <img src="images/drinks2.jpg" alt="Blue Lagoon Mocktail">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Blue Lagoon Mocktail</h3>
+                        <span class="price">Rs. 1100</span>
+                    </div>
+                    <p>Vibrant blue citrus syrup, sparkling soda, fresh lemon slices, and crushed ice.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Blue Lagoon Mocktail', 1100, 'images/drinks2.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="drinks" style="display: none;" onclick="goToProduct('Berry Sparkle Cooler', 1250, 'images/drinks3.jpg', 'Sweet mixed berries blended with sparkling water, crushed ice, and floral garnishes.')">
+                <img src="images/drinks3.jpg" alt="Berry Sparkle Cooler">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Berry Sparkle Cooler</h3>
+                        <span class="price">Rs. 1250</span>
+                    </div>
+                    <p>Sweet mixed berries blended with sparkling water, crushed ice, and floral garnishes.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Berry Sparkle Cooler', 1250, 'images/drinks3.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="drinks" style="display: none;" onclick="goToProduct('Ruby Sunset Punch', 1350, 'images/drinks4.jpg', 'Rich ruby fruit juices infused with aromatic spices and citrus notes.')">
+                <img src="images/drinks4.jpg" alt="Ruby Sunset Punch">
+                <div class="menu-info">
+                    <div class="menu-title-price">
+                        <h3>Ruby Sunset Punch</h3>
+                        <span class="price">Rs. 1350</span>
+                    </div>
+                    <p>Rich ruby fruit juices infused with aromatic spices and citrus notes.</p>
+                    <button class="btn-primary add-to-cart" onclick="event.stopPropagation(); addToCartDirect('Ruby Sunset Punch', 1350, 'images/drinks4.jpg')">Add to Cart +</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">Savoré</div>
+            <p>© 2026 Savoré Restaurant. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script to handle routing and cart -->
+    <script src="script.js"></script>
+    <script>
+        function goToProduct(name, price, img, desc) {
+            const encodedName = encodeURIComponent(name);
+            const encodedDesc = encodeURIComponent(desc);
+            const encodedImg = encodeURIComponent(img);
+            window.location.href = `product.html?name=${encodedName}&price=${price}&img=${encodedImg}&desc=${encodedDesc}`;
+        }
+
+        function addToCartDirect(name, price, img) {
+            if (typeof addToCart === 'function') {
+                addToCart(name, price, img);
+            } else {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let existingItem = cart.find(item => item.name === name);
+                if (existingItem) {
+                    existingItem.qty += 1;
+                } else {
+                    cart.push({ name, price, img, qty: 1 });
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+            alert(`"${name}" has been added to your cart!`);
+        }
+
+        // Category Filtering Script
+        const catButtons = document.querySelectorAll('.cat-btn');
+        const menuCards = document.querySelectorAll('.menu-card');
+
+        catButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                catButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const category = button.getAttribute('data-category');
+
+                menuCards.forEach(card => {
+                    if (card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savoré - Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Savoré</div>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="contact.html" class="active">CONTACT</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="login.html" class="btn-primary">SIGN IN</a>
+            <a href="cart.html" class="cart-btn">CART <span id="cart-count">0</span></a>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- Contact Header -->
+    <header class="contact-header">
+        <h1>We'd Love to <span>Hear</span> From You</h1>
+        <p>Whether it's a booking, a private event enquiry, or just a compliment to the kitchen — we're here.</p>
+    </header>
+
+    <!-- Contact Main Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            
+            <!-- Left: Send Us a Message Form -->
+            <div class="contact-form-box">
+                <h2>Send us a Message</h2>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Arjun Perera">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="text" placeholder="+94 71 287 5544">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="you@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <select>
+                            <option>Select a subject...</option>
+                            <option>Table Reservation</option>
+                            <option>Private Event</option>
+                            <option>General Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="4" placeholder="Tell us how we can help...."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary submit-btn">SEND MESSAGE →</button>
+                </form>
+            </div>
+
+            <!-- Right: Details, Hours & Map -->
+            <div class="contact-info-column">
+                <div class="info-hours-grid">
+                    <!-- Contact Details -->
+                    <div class="contact-details-box">
+                        <h3>Contact Details</h3>
+                        <p><span>📍</span> <strong>ADDRESS</strong><br>42 Galle Road, Kollupitiya<br>Colombo 03, Sri Lanka</p>
+                        <p><span>📞</span> <strong>PHONE</strong><br>+94 11 234 5678</p>
+                        <p><span>✉️</span> <strong>EMAIL</strong><br>hello@savore.lk</p>
+                        <p><span>🌐</span> <strong>WEBSITE</strong><br>www.savore.lk</p>
+                    </div>
+
+                    <!-- Opening Hours -->
+                    <div class="opening-hours-box">
+                        <h3>Opening Hours</h3>
+                        <ul>
+                            <li><span>Monday - Thursday</span> <strong>12:00 PM - 10:00 PM</strong></li>
+                            <li><span>Friday - Saturday</span> <strong style="color: var(--gold-accent);">12:00 PM - 11:30 PM</strong></li>
+                            <li><span>Sunday</span> <strong>11:00 AM - 9:00 PM</strong></li>
+                            <li><span>Public Holidays</span> <strong>12:00 PM - 9:00 PM</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Map Box with map.png -->
+                <div class="map-box" style="background: url('images/map.png') no-repeat center center/cover; height: 220px;"></div>
+                
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">Savoré</div>
+            <p>© 2026 Savoré Restaurant. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

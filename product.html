@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savoré - Product Details</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .product-detail-section {
+            padding: 60px 5%;
+        }
+        .product-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+            background-color: var(--card-bg);
+            border: 1px solid #2A1A14;
+            padding: 40px;
+            border-radius: 16px;
+        }
+        .product-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .product-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .product-price {
+            font-size: 1.8rem;
+            color: var(--gold-accent);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .ingredients-box {
+            background-color: #120A07;
+            border: 1px solid #2A1A14;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .ingredients-box h4 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+        .ingredients-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .ing-tag {
+            background-color: var(--card-bg);
+            border: 1px solid #2A1A14;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .qty-btn {
+            background-color: #2A1A14;
+            color: var(--text-light);
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #qty-val {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .add-order-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1rem;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+        @media screen and (max-width: 768px) {
+            .product-detail-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Savoré</div>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="login.html" class="btn-primary">SIGN IN</a>
+            <a href="cart.html" class="cart-btn">CART <span id="cart-count">0</span></a>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail-section">
+        <div class="product-detail-container">
+            <div class="product-image">
+                <img id="prod-img" src="" alt="Product Image">
+            </div>
+            <div class="product-info">
+                <h1 id="prod-name"></h1>
+                <div class="product-price" id="prod-price"></div>
+                <p class="product-desc" id="prod-desc"></p>
+
+                <div class="ingredients-box">
+                    <h4>Ingredients</h4>
+                    <div class="ingredients-tags" id="prod-ingredients">
+                        <!-- Dynamic ingredients will load here -->
+                    </div>
+                </div>
+
+                <div class="quantity-box">
+                    <span>QUANTITY</span>
+                    <button class="qty-btn" onclick="decreaseQty()">-</button>
+                    <span id="qty-val">1</span>
+                    <button class="qty-btn" onclick="increaseQty()">+</button>
+                </div>
+
+                <button class="btn-primary add-order-btn" id="add-to-order-btn">ADD TO ORDER</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">Savoré</div>
+            <p>© 2026 Savoré Restaurant. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Fetch product details from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name') || 'Mixed Grill Platter';
+        const price = parseInt(urlParams.get('price')) || 3400;
+        const img = urlParams.get('img') || 'images/main1.jpg';
+        const desc = urlParams.get('desc') || 'Delicious meal item.';
+
+        // Function to return the appropriate ingredients list based on the item name
+        function getIngredients(itemName) {
+            switch(itemName.toLowerCase()) {
+                case 'double cheeseburger & fries':
+                    return ['Double beef patties', 'Cheddar cheese', 'Fresh lettuce', 'Red onions', 'French fries'];
+                case 'margherita pizza':
+                    return ['Tomato sauce', 'Mozzarella cheese', 'Fresh basil', 'Olive oil'];
+                case 'chicken fajita wraps':
+                    return ['Grilled chicken', 'Bell peppers', 'Onions', 'Soft tortillas'];
+                case 'pappardelle bolognese':
+                    return ['Fresh pappardelle pasta', 'Beef ragu', 'Parsley', 'Parmesan'];
+                case 'bbq chicken & pineapple pizza':
+                    return ['Grilled chicken', 'Pineapple', 'Red onions', 'Mozzarella', 'BBQ sauce'];
+                case 'sesame glazed chicken wings':
+                    return ['Chicken wings', 'Sesame glaze', 'Fresh herbs'];
+                case 'caramelized onion bruschetta':
+                    return ['Artisanal bread', 'Caramelized onions', 'Melted cheese', 'Arugula'];
+                case 'loaded mushroom fries':
+                    return ['French fries', 'Mushroom sauce', 'Bacon bits', 'Herbs'];
+                case 'golden pumpkin velouté':
+                    return ['Pumpkin soup', 'Noodles', 'Raisins', 'Fresh parsley'];
+                case 'raspberry cake':
+                    return ['Raspberries', 'Vanilla cream', 'Sponge cake'];
+                case 'chocolate oreo sundae':
+                    return ['Chocolate mousse', 'Oreo cookies', 'Whipped cream', 'Chocolate fudge'];
+                case 'sizzling brownie with ice cream':
+                    return ['Fudgy brownie', 'Vanilla ice cream', 'Chocolate drizzle'];
+                case 'blueberry glazed cake':
+                    return ['Blueberry sponge cake', 'Vanilla glaze', 'Fresh berries'];
+                case 'sunset punch cocktail':
+                    return ['Citrus juice', 'Aromatic spices', 'Ice blend'];
+                case 'classic ice tea':
+                    return ['Brewed black tea', 'Fresh lime', 'Mint leaves', 'Ice'];
+                case 'blue lagoon mocktail':
+                    return ['Blue citrus syrup', 'Sparkling soda', 'Lemon slices'];
+                case 'berry sparkle cooler':
+                    return ['Mixed berries', 'Sparkling water', 'Floral garnishes'];
+                case 'ruby sunset punch':
+                    return ['Ruby fruit juices', 'Aromatic spices', 'Citrus notes'];
+                default:
+                    return ['Chef special ingredients', 'Fresh herbs', 'Signature sauce'];
+            }
+        }
+
+        // Update DOM elements with product information
+        document.getElementById('prod-name').innerText = name;
+        document.getElementById('prod-price').innerText = 'Rs. ' + price;
+        document.getElementById('prod-img').src = img;
+        document.getElementById('prod-desc').innerText = desc;
+
+        // Render ingredients tags dynamically
+        const ingredientsContainer = document.getElementById('prod-ingredients');
+        const itemIngredients = getIngredients(name);
+        ingredientsContainer.innerHTML = itemIngredients.map(ing => `<span class="ing-tag">${ing}</span>`).join('');
+
+        let quantity = 1;
+        const qtyVal = document.getElementById('qty-val');
+        const orderBtn = document.getElementById('add-to-order-btn');
+
+        function updatePrice() {
+            qtyVal.innerText = quantity;
+            orderBtn.innerText = `ADD TO ORDER - Rs. ${price * quantity}`;
+        }
+
+        function increaseQty() {
+            quantity++;
+            updatePrice();
+        }
+
+        function decreaseQty() {
+            if (quantity > 1) {
+                quantity--;
+                updatePrice();
+            }
+        }
+
+        // Initial price setup
+        updatePrice();
+
+        // Instant Add to Cart without annoying alert pop-ups
+        orderBtn.addEventListener('click', () => {
+            for(let i = 0; i < quantity; i++) {
+                addToCart(name, price, img);
+            }
+            
+            let originalText = orderBtn.innerText;
+            orderBtn.innerText = "SUCCESSFULLY ADDED! ✓";
+            orderBtn.style.backgroundColor = "#4BB543";
+            orderBtn.style.color = "#FFF";
+
+            setTimeout(() => {
+                orderBtn.innerText = originalText;
+                orderBtn.style.backgroundColor = "";
+                orderBtn.style.color = "";
+            }, 1500);
+        });
+
+        // Mobile menu toggle functionality
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('navLinks');
+        if (mobileMenu && navLinks) {
+            mobileMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
